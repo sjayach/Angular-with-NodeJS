@@ -1,0 +1,35 @@
+<div class="jumbotron text-left">
+		<div class="row">
+			<div class="col-md-4">
+				<h2>{{show.name}}</h2>
+				<p>
+					<span ng-repeat="genre in show.genres track by $index" style="font-size:75%">
+						{{genre}}
+						<span ng-if="$index != show.genres.length -1">|</span>
+					</span>
+				</p>
+				<img ng-src="{{show.image.medium}}">
+			</div>
+			<div class="col-md-8">
+				<h3>Summary</h3>
+				<hr style="border-top-color: #d5d5d5;">
+				<p ng-bind-html="show.summary | trustHTML"></p>
+				<h3>Cast</h3>
+				<hr style="border-top-color: #d5d5d5;">
+				<div ng-repeat="ca in show._embedded.cast">
+					<div class="well">
+						<div class="row">
+							<div class="col-md-4">
+								<img src={{getImage(ca.character.image.medium)}} width="50%">
+							</div>
+							<div class="col-md-6">
+								{{ca.person.name}} ... {{ca.character.name}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<br />
+			</div>
+			<br />
+	</div>
+</div>

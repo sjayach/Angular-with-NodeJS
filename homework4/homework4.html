@@ -1,0 +1,193 @@
+<!doctype html>
+<html ng-app="homework4App">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="homework4.js"></script>
+	<link rel="stylesheet" href="homework4.css">
+</head>
+<body background="background.jpg" style="background-repeat:no-repeat;background-size:cover;">
+
+	<div class="container" ng-controller="homework4Ctrl">
+
+		<div class="page-header">
+			<h1>Midterm Team Manager <small>CS 454</small></h1>
+		</div>
+		<div class="row">
+			<div class="col-md-4" >
+				<h3>Add Group <span class="glyphicon glyphicon-comment"></h3>
+				<hr />
+
+				<form ng-submit="addGroup()">				  
+				  <div class="form-group">
+				    <label for="newModuleName">Node Module</label>
+				    <input type="text" class="form-control" id="newModuleName" placeholder="Enter the module name" ng-model="groupName">
+				  </div>
+				  <div class="form-group">
+				    <label for="newModuleDescription">Description</label>
+				    <textarea class="form-control" rows="4" id="newModuleDescription" placeholder="Enter a description of the node module" 
+				    ng-model="groupDescription">
+				    	
+				    </textarea>
+				  </div>
+				  <div class="form-group text-center">
+				  	<button type="submit" class="btn btn-primary">Add Group</button>
+				  </div>
+				</form>
+					<!-- <h3>Groups <small>{{remaining()}} Total</small></h3> -->
+
+			</div>
+			<div class="col-md-4">
+				<h3>Add Student <span class="glyphicon glyphicon-user"></span>
+				</h3>
+				<hr />
+				<form ng-submit="addStudents()">
+				  <div class="form-group">
+				    <label for="newStudentName">Student Name</label>
+				    <input type="text" class="form-control" id="newStudentName" placeholder="Enter the student's name" ng-model="studName">
+				  </div>
+
+				  <div class="form-group">
+				    <label for="targetGroup">Group</label>
+				    <select class="form-control" ng-model="groupId">
+						<option ng-repeat="group in groups" value="{{$index}}">{{group.name}}</option>
+					</select>
+				  </div>
+				  <div class="form-group text-center">
+				  	<button type="submit" class="btn btn-primary">Add Student</button>
+				  </div>
+				</form>
+			</div>
+			<div class="col-md-4">
+				<h3>Add Task <span class="glyphicon glyphicon-tasks"></span></h3>
+				<hr />
+				<form ng-submit="addTask()">
+				  <div class="form-group">
+				    <label for="newTaskText">Task</label>
+				    <input type="text" class="form-control" id="newTaskText" placeholder="Enter the task description" ng-model="groupTask">
+				  </div>
+				  <div class="form-group">
+				    <label for="targetGroup">Group</label>
+				    <select class="form-control" ng-model="gid">
+						<option ng-repeat="group in groups" value="{{$index}}">{{group.name}}</option>
+					</select>
+				  </div>
+
+				  
+				  <div class="form-group text-center">
+				  	<button type="submit" class="btn btn-primary">Add Task</button>
+				  </div>
+				</form>
+			</div>
+
+
+
+
+		</div>
+			<h3>Groups <small>{{remaining()}} Total</small></h3>
+			        Search with Group name (or) Member name :<br /><div class="col-md-6 input-group">
+			        <span class="input-group-addon glyphicon glyphicon-search"></span>
+					<input type="text" style="height:40px" ng-model="searchText" placeholder="Search group or members name" class="form-control"/>
+			        <hr /></div> <hr />
+			<div ng-repeat="group in groups | filter:searchText" ng-init="parentIndex = $index">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<div class="panel-title">
+									 {{group.name}}
+		                            <a href="#" ng-click="removeGroup($index)"><span class="pull-right glyphicon glyphicon-trash"></span></a>
+		                        </div>
+		                	</div>
+		                
+
+			                <div class="panel-body">
+			                    <h3>Description</h3>
+			                        {{group.description}}
+			                     <div class="row">
+									<div class="col-md-3">
+										<h3> <img src="group.png" style="width:30px;height:30px;"> &nbsp;Members  <small>{{groupStudentRemaining($index)}} 
+											</small>
+										</h3>
+		                                <hr />
+
+		                                <!-- Note: Here, you should use ng-repeat to list all students who are part of this group. -->
+										<ul class="list-unstyled">
+											<li ng-repeat="student in group.students | filter:searchText">
+											{{student}}
+											<a href="#" ng-click="removeStudentFromGroup(parentIndex, $index)">
+											<span class="glyphicon glyphicon-trash"></span></a>
+											</li>
+										</ul>
+									</div>
+									<div class="col-md-8">
+										<h3><span class="glyphicon glyphicon-tasks"></span> &nbsp;Tasks <small>{{remainingTask($index)}} of completed {{totalGroupTask($index)}} and {{taskToBeCompleted($index)}} Remaining </small></h3>
+                                		<hr />
+                                		<ul class="list-unstyled">
+								          <li ng-repeat="task in group.tasks">
+								          	<table>
+								          	<tr>
+								          	<td>
+								          	<select class="form-control" ng-model="task.studentName">
+								          		<option value=""></option>
+												<option ng-repeat="student in groups[parentIndex].students" value="{{student}}">{{student}}</option>
+								          		}
+											</select> 
+											</td>
+											<td>
+								            <input type="checkbox" ng-model="task.isDone">
+								            <span class="done-{{task.isDone}}">{{task.taskName}}</span>
+								            <a href="#" ng-click="removeTaskFromGroup(parentIndex, $index)">
+											<span class="glyphicon glyphicon-trash"></span></a>
+											</td>
+											</tr>
+											</table>
+								          </li>
+								        </ul>
+								        <br />
+                                	</div>
+								</div>
+								<div>
+								<h3> Task Detail <span class="glyphicon glyphicon-tasks"></span></h3>
+								<hr/>
+								<table class=" table table-striped col-md-10">
+								<tr class="success">
+									<th class="col-md-5">Task</th>
+									<th class="col-md-3">Student</th>
+									<th class="col-md-2">Status</th>
+								</tr>
+								</table>
+								<ul class="list-unstyled">
+									<li ng-repeat="task in group.tasks">
+										<table class=" table table-striped col-md-10">
+										<tr>
+										<td class="col-md-5">{{task.taskName}}</td>
+										<td class="col-md-3">
+										<label ng-if="task.studentName.length<=0" style="color:blue">(Not yet Assigned)
+										<span class="glyphicon glyphicon-question-sign"></span></label>
+										{{task.studentName}}&nbsp;
+										</td>
+										<td class="col-md-2">
+										<div ng-switch on="task.isDone">
+											<div ng-switch-when="true" style="color:green">
+												completed &nbsp; <span class="glyphicon glyphicon-ok"></span>
+											</div>
+											<div ng-switch-default style="color:red">
+											   	Not Completed <span class="glyphicon glyphicon-remove"></span>
+											</div>
+										</div>
+										</td>
+										</tr>
+										</table>
+
+									</li>
+								</ul>
+								</div>
+			                </div>
+			            </div>
+		            </div>
+		        </div>
+           </div>    
+	</div>
+</body>
+</html>

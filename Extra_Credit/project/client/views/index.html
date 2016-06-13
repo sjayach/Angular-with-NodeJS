@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+
+	<title>Tv Maze App</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.7/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.7/angular-resource.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.7/angular-route.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-cookies.min.js"></script>
+
+	<script src="js/app.js"></script>
+	<script src="js/search/search.controller.js"></script>
+	<script src="js/search/search.service.js"></script>
+	<script src="js/show/show.controller.js"></script>
+	<script src="js/history/history.controller.js"></script>
+
+	<script src="js/show/show.service.js"></script>
+
+
+</head>
+<body ng-app="app">
+<div>
+</div>
+
+<div class="container">
+	
+	<!-- <nav class="navbar navbar-inverse nav-fixed-top">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Numbers APP</a>
+		</div>
+	<ul class="nav navbar-nav">
+		<li><a href="/">Home</a></li>
+	</ul>
+	</nav> -->
+	<p style="margin-top:3%">
+		<a ng-href="/">Search for shows</a>  | <a ng-href="#"> Schedules</a>  | <a ng-href="#">Favourites</a> | <a ng-href="/history">Search History</a> 
+	</p>
+	<br />
+	<br />
+	<div ng-view></div>
+</div>
+
+</body>
+</html>

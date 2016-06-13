@@ -1,0 +1,56 @@
+[
+    {
+        "text": "35000 is the number of genes in a human being.",
+        "number": 35000,
+        "found": true,
+        "type": "trivia",
+        "saved": "Mon Oct 19 2015 19:17:12 GMT-0700 (Pacific Daylight Time)"
+    },
+    {
+        "date": "October 30",
+        "text": "1501 is the year that the Banquet of Chestnuts is held by Cesare Borgia in the Papal Palace of Rome on October 30th.",
+        "number": 1501,
+        "found": true,
+        "type": "year",
+        "saved": "Mon Oct 19 2015 19:17:22 GMT-0700 (Pacific Daylight Time)"
+    },
+    {
+        "date": "July 27",
+        "text": "1501 is the year that Copernicus is formally installed as canon of Frauenberg Cathedral on July 27th.",
+        "number": 1501,
+        "found": true,
+        "type": "year",
+        "saved": "Mon Oct 19 2015 19:19:59 GMT-0700 (Pacific Daylight Time)"
+    },
+    {
+        "date": "July",
+        "text": "1501 is the year that Ismail I is enthroned as Shah of Azerbaijan, choosing Tabriz as his capital, founding the Safavid dynasty in northern Iran on July NaNth.",
+        "number": 1501,
+        "found": true,
+        "type": "year",
+        "saved": "Mon Oct 19 2015 19:20:21 GMT-0700 (Pacific Daylight Time)"
+    },
+    {
+        "date": "November 1 (All Saints)",
+        "text": "1501 is the year that Amerigo Vespucci discovers and names Baía de Todos os Santos in Brazil on November (All Saints) 1st.",
+        "number": 1501,
+        "found": true,
+        "type": "year",
+        "saved": "Mon Oct 19 2015 19:20:30 GMT-0700 (Pacific Daylight Time)"
+    },
+    {
+        "text": "1729 is the smallest natural number representable in two different ways as a sum of two positive cubes, as Ramanujan stated on the spot.",
+        "number": 1729,
+        "found": true,
+        "type": "math",
+        "saved": "Mon Oct 19 2015 19:24:34 GMT-0700 (Pacific Daylight Time)"
+    },
+    {
+        "text": "January 30th is the day in 1703 that the Forty-seven Ronin, under the command of Ōishi Kuranosuke, avenge the death of their master.",
+        "year": 1703,
+        "number": 30,
+        "found": true,
+        "type": "date",
+        "saved": "Mon Oct 19 2015 19:24:45 GMT-0700 (Pacific Daylight Time)"
+    }
+]

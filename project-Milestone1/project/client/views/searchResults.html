@@ -1,0 +1,10 @@
+<div ng-repeat="show in shows">
+		<div class="jumbotron text-left">
+		<div class="row">
+			<div class="col-md-4"><img ng-src="{{show.show.image.medium}}"></div>
+			<div class="col-md-6"><h2>{{show.show.name}}</h2><br/><p ng-bind-html="show.show.summary | trustHTML"></p></div>
+		</div>
+		<br />
+		</div>
+
+	</div>

@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+
+	<title>Tv Maze App</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+
+	<script src="js/app.js"></script>
+	<script src="js/search/search.controller.js"></script>
+	<script src="js/search/search.service.js"></script>
+	<script src="js/show/show.controller.js"></script>
+	<script src="js/show/show.service.js"></script>
+
+</head>
+<body ng-app="app">
+<div class="container">
+	
+	<!-- <nav class="navbar navbar-inverse nav-fixed-top">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Numbers APP</a>
+		</div>
+	<ul class="nav navbar-nav">
+		<li><a href="/">Home</a></li>
+	</ul>
+	</nav> -->
+	<p style="margin-top:3%">
+		<a ng-href="/">Search for shows</a>  | <a ng-href="#"> Schedules</a>  | <a ng-href="#">Favourites</a>
+	</p>
+	<br />
+	<br />
+	<div ng-view></div>
+</div>
+
+</body>
+</html>

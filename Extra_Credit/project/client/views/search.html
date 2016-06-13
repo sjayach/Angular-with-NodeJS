@@ -1,0 +1,30 @@
+
+	<h2>Search Shows</h2>
+	
+	<form>
+		<div class="col-lg-6" style="padding-left:0;">
+			<div class="input-group">
+				<!-- <input type="text" class="form-control col-md-7" ng-model="searchText"> -->
+				<input name="queue" id="queue" type="text" placeholder="Enter the show" ng-model="searchText" uib-typeahead="state for state in queue  | filter:$viewValue | limitTo:8" class="form-control" template-url>
+ 
+				<span class="input-group-btn">
+
+					<button type="button" class="btn btn-primary" ng-click="search()">Search</button>
+				</span>
+			</div>
+		</div>
+	</form>
+	<br />
+	<br />
+	<div ng-show="shows.length === 0">
+		<i>No Results Found</i>
+	</div>
+	<br />
+	<br />
+	<div ng-if="shows.length">
+		<h2>Search Results</h2>
+
+		<div search-preview> </div>
+	</div>
+	
+	
